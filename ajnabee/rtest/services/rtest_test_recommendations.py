@@ -2,9 +2,9 @@ import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 
-def recommend(X,user,threshold=5):
+def recommend(X,x,user,threshold=5):
     model = KMeans(n_clusters=2, random_state=0)
-    print(X)
+    print("X   ",X)
     model.fit(X[:,1:])
     frame = pd.DataFrame(X)
     frame['cluster'] = model.predict(X[:,1:])
@@ -20,10 +20,12 @@ def recommend(X,user,threshold=5):
     print(required_distances)
     # return user_name with the help of idx
     print(len(data.iloc[idx,:].index))
+    print("X", x)
     list_recommended_users = []
     for i in range(len(data.iloc[idx,:].index)):
         index = data.iloc[idx, :].index[i]
-        list_recommended_users.append(int(frame.iloc[index,0]))
+        print("series",frame.iloc[index,0])
+        list_recommended_users.append(int(x[index,0]))
     print(list_recommended_users)
     return list_recommended_users
 

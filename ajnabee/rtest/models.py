@@ -2,20 +2,20 @@ from djutil.models import TimeStampedModel
 from django.db.models import PositiveIntegerField, CharField, DateTimeField, TextField, BooleanField
 import numpy as np
 
-# RtestModel.objects.create(user_id = 3,q1_opt="3",q2_opt="2",q3_opt="3",q4_opt="6",q5_opt="1",q6_opt="2",q7_opt="4",q8_opt="4",q9_opt="4",q10_opt="3")
+#RtestModel.objects.create(user_id = 100,q1_opt="1",q2_opt="4",q3_opt="3",q4_opt="1",q5_opt="1",q6_opt="2",q7_opt="4",q8_opt="4",q9_opt="4",q10_opt="3")
 
 class RtestModel(TimeStampedModel):
     user_id = PositiveIntegerField(blank=False, null=False)
-    q1_opt = CharField(max_length=200,null=False,blank=False)
-    q2_opt = CharField(max_length=200,null=False,blank=False)
-    q3_opt = CharField(max_length=200,null=False,blank=False)
-    q4_opt = CharField(max_length=200,null=False,blank=False)
-    q5_opt = CharField(max_length=200,null=False,blank=False)
-    q6_opt = CharField(max_length=200,null=False,blank=False)
-    q7_opt = CharField(max_length=200,null=False,blank=False)
-    q8_opt = CharField(max_length=200,null=False,blank=False)
-    q9_opt = CharField(max_length=200,null=False,blank=False)
-    q10_opt = CharField(max_length=200,null=False,blank=False)    
+    q1_opt = PositiveIntegerField(null=False,blank=False)
+    q2_opt = PositiveIntegerField(null=False,blank=False)
+    q3_opt = PositiveIntegerField(null=False,blank=False)
+    q4_opt = PositiveIntegerField(null=False,blank=False)
+    q5_opt = PositiveIntegerField(null=False,blank=False)
+    q6_opt = PositiveIntegerField(null=False,blank=False)
+    q7_opt = PositiveIntegerField(null=False,blank=False)
+    q8_opt = PositiveIntegerField(null=False,blank=False)
+    q9_opt = PositiveIntegerField(null=False,blank=False)
+    q10_opt = PositiveIntegerField(null=False,blank=False)
 
 
     def __str__(self):

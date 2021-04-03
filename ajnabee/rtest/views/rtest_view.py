@@ -25,12 +25,12 @@ class RtestView(APIView):
         print("All data ",all_user_data)
         nrows = len(all_user_data)
         print("Number of rows ",nrows)
-        X = np.zeros([nrows,11],dtype=str)
+        X = np.zeros([nrows,11])
         for i,users in enumerate(all_user_data):
             print("User ",users.get_opt())
             X[i,:] = users.get_opt()
         print(X)
-        self.user_ids = recommend(X,user_data_recommend,2)
+        self.user_ids = recommend(X,X,user_data_recommend,2)
         print("Recommend ",self.user_ids)
         recommended_user_objects = []
         for user in all_user_data:
