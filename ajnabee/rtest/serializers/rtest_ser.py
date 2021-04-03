@@ -4,4 +4,4 @@ from ajnabee.rtest.models import RtestModel
 class RtestSerializer(serializers.ModelSerializer):
     class Meta:
         model = RtestModel
-        fields = "__all__"
+        fields = ["user_id"]
