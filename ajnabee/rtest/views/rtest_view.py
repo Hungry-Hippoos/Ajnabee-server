@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from ajnabee.rtest.services.rtest_test_recommendations import recommend
 from ajnabee.rtest.services.rtest_service import get_all_user_data,get_user_data,make_user_instance
 from ajnabee.rtest.serializers.rtest_ser import RtestSerializer
+from ajnabee.rtest.models import RtestModel
 
 class RtestView(APIView):
     parser_classes = (JSONParser,)
@@ -43,8 +44,12 @@ class RtestView(APIView):
                     recommended_user_objects.append(user)
         usernames = []
         for i in index:
-            usernames.append(names[i])
+            if names[i] != user_data.username:
+                usernames.append(names[i])
+                user_rec_final = RtestModel.objects.get(username=names[i])
+                recommended_user_objects.append(user_rec_final)
         print(usernames)
+        print(recommended_user_objects)
         serializer_data = RtestSerializer(instance=recommended_user_objects,many = True).data
         return Response({'data':serializer_data})
         

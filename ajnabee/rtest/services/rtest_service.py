@@ -10,7 +10,7 @@ def get_user_data(pk):
 
 def make_user_instance(data):
     instance = RtestModel(
-        user_id = data['user_id'],
+        username = data['username'],
         q1_opt = data['options'][0],
         q2_opt = data['options'][1],
         q3_opt = data['options'][2],
