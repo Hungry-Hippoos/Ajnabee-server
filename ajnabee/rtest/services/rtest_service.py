@@ -7,3 +7,19 @@ def get_all_user_data():
 def get_user_data(pk):
     all_user_data = RtestModel.objects.get(user_id=pk)
     return all_user_data
+
+def make_user_instance(data):
+    instance = RtestModel(
+        user_id = data['user_id'],
+        q1_opt = data['options'][0],
+        q2_opt = data['options'][1],
+        q3_opt = data['options'][2],
+        q4_opt = data['options'][3],
+        q5_opt = data['options'][4],
+        q6_opt = data['options'][5],
+        q7_opt = data['options'][6],
+        q8_opt = data['options'][7],
+        q9_opt = data['options'][8],
+        q10_opt = data['options'][9],
+    )
+    return instance

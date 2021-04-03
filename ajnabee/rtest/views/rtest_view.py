@@ -1,22 +1,22 @@
 import logging
+import numpy as np
+import json
 from rest_framework.views import APIView
 from rest_framework import renderers
 from rest_framework.parsers import JSONParser
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from ajnabee.rtest.services.rtest_test_recommendations import recommend
-from ajnabee.rtest.services.rtest_service import get_all_user_data,get_user_data
+from ajnabee.rtest.services.rtest_service import get_all_user_data,get_user_data,make_user_instance
 from ajnabee.rtest.serializers.rtest_ser import RtestSerializer
-import numpy as np
 
 class RtestView(APIView):
     parser_classes = (JSONParser,)
     renderer_classes = (renderers.JSONRenderer,)
 
-
-
     def get(self, request,pk):
         '''
-        :params : pk
+        :params : pk as user_id
         '''
         user_data = get_user_data(pk)
         user_data_recommend = user_data.get_opt()
@@ -34,6 +34,7 @@ class RtestView(APIView):
         print("Recommend ",self.user_ids)
         recommended_user_objects = []
         for user in all_user_data:
+            print(user.user_id,user_data.user_id)
             if user.user_id in self.user_ids:
                 if user.user_id != user_data.user_id:
                     recommended_user_objects.append(user)
@@ -44,6 +45,18 @@ class RtestView(APIView):
 class RtestAllView(APIView):
     parser_classes = (JSONParser,)
     renderer_classes = (renderers.JSONRenderer,)
+
+    def post(self, request):
+        '''
+        POST API to add data
+        '''
+        print(request.data)
+        instance = make_user_instance(request.data)
+        try:
+            instance.save()
+        except:
+            raise NotFound(detail="not saved", code=500)
+        return Response({'data': "hello"})
 
     def get(self, request):
         '''
