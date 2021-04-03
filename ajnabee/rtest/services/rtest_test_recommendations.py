@@ -22,7 +22,8 @@ def recommend(X,user,threshold=5):
     print(len(data.iloc[idx,:].index))
     list_recommended_users = []
     for i in range(len(data.iloc[idx,:].index)):
-        list_recommended_users.append(data.iloc[idx,:].index[i])
+        index = data.iloc[idx, :].index[i]
+        list_recommended_users.append(int(frame.iloc[index,0]))
     print(list_recommended_users)
     return list_recommended_users
 
