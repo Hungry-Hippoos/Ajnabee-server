@@ -5,7 +5,7 @@ def get_all_user_data():
     return all_user_data
 
 def get_user_data(pk):
-    all_user_data = RtestModel.objects.get(user_id=pk)
+    all_user_data = RtestModel.objects.get(username=pk)
     return all_user_data
 
 def make_user_instance(data):

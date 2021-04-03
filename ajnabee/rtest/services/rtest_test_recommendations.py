@@ -22,11 +22,13 @@ def recommend(X,x,user,threshold=5):
     print(len(data.iloc[idx,:].index))
     print("X", x)
     list_recommended_users = []
+    list_index = []
     for i in range(len(data.iloc[idx,:].index)):
         index = data.iloc[idx, :].index[i]
+        list_index.append(index)
         print("series",frame.iloc[index,0])
         list_recommended_users.append(int(x[index,0]))
     print(list_recommended_users)
-    return list_recommended_users
+    return list_recommended_users,list_index
 
 # recommend(X,y,model_kmeans,0,2)

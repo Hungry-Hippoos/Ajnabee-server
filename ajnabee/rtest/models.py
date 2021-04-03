@@ -2,9 +2,10 @@ from djutil.models import TimeStampedModel
 from django.db.models import PositiveIntegerField, CharField, DateTimeField, TextField, BooleanField
 import numpy as np
 
-#RtestModel.objects.create(user_id = 100,q1_opt="1",q2_opt="4",q3_opt="3",q4_opt="1",q5_opt="1",q6_opt="2",q7_opt="4",q8_opt="4",q9_opt="4",q10_opt="3")
+#RtestModel.objects.create(username = "Manan",user_id = 100,q1_opt="1",q2_opt="4",q3_opt="3",q4_opt="1",q5_opt="1",q6_opt="2",q7_opt="4",q8_opt="4",q9_opt="4",q10_opt="3")
 
 class RtestModel(TimeStampedModel):
+    username = CharField(max_length=200,blank=False, null=False)
     user_id = PositiveIntegerField(blank=False, null=False)
     q1_opt = PositiveIntegerField(null=False,blank=False)
     q2_opt = PositiveIntegerField(null=False,blank=False)
@@ -22,7 +23,7 @@ class RtestModel(TimeStampedModel):
         return "{}".format(self.id)
 
     def get_opt(self):
-       return np.array([self.user_id,self.q1_opt , self.q2_opt , self.q3_opt , self.q4_opt , self.q5_opt,
+       return np.array([self.username,self.user_id,self.q1_opt , self.q2_opt , self.q3_opt , self.q4_opt , self.q5_opt,
          self.q1_opt, self.q2_opt, self.q3_opt, self.q4_opt, self.q5_opt ])
 
     def clean(self):

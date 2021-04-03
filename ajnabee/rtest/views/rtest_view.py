@@ -16,21 +16,24 @@ class RtestView(APIView):
 
     def get(self, request,pk):
         '''
-        :params : pk as user_id
+        :params : pk as user_id # username
         '''
         user_data = get_user_data(pk)
-        user_data_recommend = user_data.get_opt()
+        user_data_w_name = user_data.get_opt()
+        user_data_recommend = user_data_w_name[1:]
         print("User Data",user_data.get_opt())
         all_user_data = get_all_user_data()
         print("All data ",all_user_data)
         nrows = len(all_user_data)
         print("Number of rows ",nrows)
         X = np.zeros([nrows,11])
+        names = []
         for i,users in enumerate(all_user_data):
-            print("User ",users.get_opt())
-            X[i,:] = users.get_opt()
+            names.append(users.get_opt()[0])
+            print("User ",users.get_opt()[1:])
+            X[i,:] = users.get_opt()[1:]
         print(X)
-        self.user_ids = recommend(X,X,user_data_recommend,2)
+        self.user_ids,index = recommend(X,X,user_data_recommend,2)
         print("Recommend ",self.user_ids)
         recommended_user_objects = []
         for user in all_user_data:
@@ -38,6 +41,10 @@ class RtestView(APIView):
             if user.user_id in self.user_ids:
                 if user.user_id != user_data.user_id:
                     recommended_user_objects.append(user)
+        usernames = []
+        for i in index:
+            usernames.append(names[i])
+        print(usernames)
         serializer_data = RtestSerializer(instance=recommended_user_objects,many = True).data
         return Response({'data':serializer_data})
         
