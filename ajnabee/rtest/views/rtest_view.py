@@ -93,7 +93,7 @@ class MessageView(APIView):
         model = SentenceTransformer('paraphrase-distilroberta-base-v1')
         reply = semantic_similarity_roberta(model,[" ".join(user1)],[" ".join(user2)])
         print(reply)
-        return Response({'data':[" ".join(user1)," ".join(user2)]})
+        return Response({'Status':reply})
 
     '''
     response: 

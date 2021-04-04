@@ -6,11 +6,12 @@ Django==3.1.7
 djangorestframework==3.12.4
 djutil==0.2
 filelock==3.0.12
+gunicorn==20.1.0
 idna==2.10
 importlib-metadata==3.10.0
 joblib==1.0.1
 nltk==3.5
-numpy==1.20.2
+numpy
 packaging==20.9
 pandas==1.2.3
 pyparsing==2.4.7
