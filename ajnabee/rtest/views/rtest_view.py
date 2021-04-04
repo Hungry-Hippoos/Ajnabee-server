@@ -11,6 +11,8 @@ from ajnabee.rtest.services.rtest_service import get_all_user_data,get_user_data
 from ajnabee.rtest.serializers.rtest_ser import RtestSerializer
 from ajnabee.rtest.models import RtestModel
 from ajnabee.rtest.services.message_service import sort_data
+from sentence_transformers import SentenceTransformer,util
+from ajnabee.rtest.services.chat_recommendation import semantic_similarity_roberta
 
 class RtestView(APIView):
     parser_classes = (JSONParser,)
@@ -88,6 +90,9 @@ class MessageView(APIView):
     def post(self, request):
         print(request.data)
         user1,user2 = sort_data(request.data['data'])
+        model = SentenceTransformer('paraphrase-distilroberta-base-v1')
+        reply = semantic_similarity_roberta(model,[" ".join(user1)],[" ".join(user2)])
+        print(reply)
         return Response({'data':[" ".join(user1)," ".join(user2)]})
 
     '''
