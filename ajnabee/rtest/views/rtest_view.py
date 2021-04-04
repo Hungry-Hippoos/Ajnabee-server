@@ -10,6 +10,7 @@ from ajnabee.rtest.services.rtest_test_recommendations import recommend
 from ajnabee.rtest.services.rtest_service import get_all_user_data,get_user_data,make_user_instance
 from ajnabee.rtest.serializers.rtest_ser import RtestSerializer
 from ajnabee.rtest.models import RtestModel
+from ajnabee.rtest.services.message_service import sort_data
 
 class RtestView(APIView):
     parser_classes = (JSONParser,)
@@ -79,3 +80,22 @@ class RtestAllView(APIView):
         serializer_data = RtestSerializer(instance=all_user_data,many=True).data
         return Response({'data':serializer_data})
         
+
+class MessageView(APIView):
+    parser_classes = (JSONParser,)
+    renderer_classes = (renderers.JSONRenderer,)
+
+    def post(self, request):
+        print(request.data)
+        user1,user2 = sort_data(request.data['data'])
+        return Response({'data':[" ".join(user1)," ".join(user2)]})
+
+    '''
+    response: 
+    {
+    "data": [
+        "no new number who dis",
+        "hi how are ya bruh reply please bitch reply toh kar plrase"
+        ]
+    }
+    '''

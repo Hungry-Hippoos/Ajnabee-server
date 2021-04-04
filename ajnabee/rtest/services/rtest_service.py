@@ -6,6 +6,8 @@ def get_all_user_data():
 
 def get_user_data(pk):
     all_user_data = RtestModel.objects.get(username=pk)
+    if not all_user_data:
+        return False
     return all_user_data
 
 def make_user_instance(data):
