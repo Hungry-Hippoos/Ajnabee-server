@@ -40,11 +40,11 @@ class RtestView(APIView):
         self.user_ids,index = recommend(X,X,user_data_recommend,4)
         print("Recommend ",self.user_ids)
         recommended_user_objects = []
-        for user in all_user_data:
-            print(user.user_id,user_data.user_id)
-            if user.user_id in self.user_ids:
-                if user.user_id != user_data.user_id:
-                    recommended_user_objects.append(user)
+        # for user in all_user_data:
+        #     print(user.user_id,user_data.user_id)
+        #     if user.user_id in self.user_ids:
+        #         if user.user_id != user_data.user_id:
+        #             recommended_user_objects.append(user)
         usernames = []
         for i in index:
             if names[i] != user_data.username:
