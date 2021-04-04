@@ -37,14 +37,14 @@ class RtestView(APIView):
             print("User ",users.get_opt()[1:])
             X[i,:] = users.get_opt()[1:]
         print(X)
-        self.user_ids,index = recommend(X,X,user_data_recommend,2)
+        self.user_ids,index = recommend(X,X,user_data_recommend,4)
         print("Recommend ",self.user_ids)
         recommended_user_objects = []
-        for user in all_user_data:
-            print(user.user_id,user_data.user_id)
-            if user.user_id in self.user_ids:
-                if user.user_id != user_data.user_id:
-                    recommended_user_objects.append(user)
+        # for user in all_user_data:
+        #     print(user.user_id,user_data.user_id)
+        #     if user.user_id in self.user_ids:
+        #         if user.user_id != user_data.user_id:
+        #             recommended_user_objects.append(user)
         usernames = []
         for i in index:
             if names[i] != user_data.username:
@@ -93,7 +93,7 @@ class MessageView(APIView):
         model = SentenceTransformer('paraphrase-distilroberta-base-v1')
         reply = semantic_similarity_roberta(model,[" ".join(user1)],[" ".join(user2)])
         print(reply)
-        return Response({'data':[" ".join(user1)," ".join(user2)]})
+        return Response({'Status':reply})
 
     '''
     response: 

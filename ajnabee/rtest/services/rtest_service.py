@@ -11,8 +11,10 @@ def get_user_data(pk):
     return all_user_data
 
 def make_user_instance(data):
+    print("Data ",data['options'])
     instance = RtestModel(
         username = data['username'],
+        user_id = 10,
         q1_opt = data['options'][0],
         q2_opt = data['options'][1],
         q3_opt = data['options'][2],

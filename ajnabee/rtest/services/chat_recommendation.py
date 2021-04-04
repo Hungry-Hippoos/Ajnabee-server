@@ -8,7 +8,7 @@ def semantic_similarity_roberta(model,sentences1,sentences2):
         for i in range(len(sentences1)):
             print("{} \t\t {} \t\t Score: {:.4f}".format(sentences1[i], sentences2[i], cosine_scores[i][i]))
             score = cosine_scores[i][i]
-        if score >= 0.2767:
+        if score <= 0.2767:
             return "Bad"
         elif score > 0.2767 and score < 0.5834:
             return "Average"
