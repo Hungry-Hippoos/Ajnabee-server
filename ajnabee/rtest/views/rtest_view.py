@@ -37,7 +37,7 @@ class RtestView(APIView):
             print("User ",users.get_opt()[1:])
             X[i,:] = users.get_opt()[1:]
         print(X)
-        self.user_ids,index = recommend(X,X,user_data_recommend,2)
+        self.user_ids,index = recommend(X,X,user_data_recommend,4)
         print("Recommend ",self.user_ids)
         recommended_user_objects = []
         for user in all_user_data:
@@ -67,8 +67,6 @@ class RtestAllView(APIView):
         '''
         print(request.data)
         instance = make_user_instance(request.data)
-        print(instance)
-        instance.save()
         try:
             instance.save()
         except:
