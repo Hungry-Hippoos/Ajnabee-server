@@ -57,4 +57,7 @@ Start the project -
 ```
 
 ---
+#### This project was built under 24 hours
+
+---
 <h3 align="center"><b>Developed with :heart: by <a href="https://github.com/mrpandya">Manan Pandya</a>, <a href="https://github.com/tusharsarkar3">Tushar Sarkar</a>, <a href="https://github.com/dhairya903">Dhairya Shah</a>, <a href="https://github.com/sanjeetnaik">Sanjeet Naik</a>.</b></h1>
