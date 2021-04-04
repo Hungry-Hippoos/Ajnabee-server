@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
     '2c0275413087.ngrok.io',
     'e094513681ab.ngrok.io',
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    '78154d456d05.ngrok.io',
 ]
 
 

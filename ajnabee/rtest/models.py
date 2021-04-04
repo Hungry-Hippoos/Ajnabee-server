@@ -6,7 +6,7 @@ import numpy as np
 
 class RtestModel(TimeStampedModel):
     username = CharField(max_length=200,blank=False, null=False,primary_key=True)
-    user_id = 10
+    user_id = PositiveIntegerField(null=False,blank=False)
     q1_opt = PositiveIntegerField(null=False,blank=False)
     q2_opt = PositiveIntegerField(null=False,blank=False)
     q3_opt = PositiveIntegerField(null=False,blank=False)

@@ -67,6 +67,8 @@ class RtestAllView(APIView):
         '''
         print(request.data)
         instance = make_user_instance(request.data)
+        print(instance)
+        instance.save()
         try:
             instance.save()
         except:
