@@ -21,7 +21,7 @@ regex==2021.3.17
 requests==2.25.1
 sacremoses==0.0.44
 scikit-learn
-scipy==1.6.2
+scipy
 sentence-transformers==1.0.4
 sentencepiece==0.1.95
 six==1.15.0
