@@ -5,7 +5,9 @@
 </div>
 
 ### This is the server for our mobile application Ajnabee 
+#### The link for the Ajnabee repository <a href="https://github.com/Hungry-Hippoos/Ajnabee">link :link:</a>
 #### The link to the repo of our mobile application <a href="https://github.com/Hungry-Hippoos/Ajnabee-mobile">link :link:</a>
+
 
 ---
 
