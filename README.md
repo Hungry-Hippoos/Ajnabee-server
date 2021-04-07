@@ -22,12 +22,12 @@
 
 Clone the project -
 ```
-  $ git clone https://github.com/Hungry-Hippoos/Ajnabee.git
+  $ git clone https://github.com/Hungry-Hippoos/Ajnabee-server.git
 ```
   
 Go to the project -
 ```
-  $ cd Ajnabee
+  $ cd Ajnabee-server
  ``` 
 Install all the reqirements -
 ```
