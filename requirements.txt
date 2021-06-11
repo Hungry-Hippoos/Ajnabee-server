@@ -2,7 +2,7 @@ asgiref==3.3.1
 certifi==2020.12.5
 chardet==4.0.0
 click==7.1.2
-Django==3.1.7
+Django==3.1.12
 djangorestframework==3.12.4
 djutil==0.2
 filelock==3.0.12
